@@ -1,0 +1,25 @@
+<h3><strong>Name review list</strong></h3>
+
+    # created form for ajax called form_for which is a rails helper that takes a :remote option
+    # since remote is set to true, now the form is submitted by ajax rather than the normal submit
+    # now you want to do something with this filled out form, lets bind to ajax:success event, ajax:error
+
+    <nav id="form">
+      <%= form_for (@user, remote: true) do |f| %>
+        Name:<%= f.text_field :name %><br/>
+        Review:<%= f.text_field :review %><br/>
+        <%= f.submit %>
+      <% end %>
+    </nav>
+
+    <div id="list">
+      <% if !@users.blank? %>
+          <% for item in @users %>
+          <ul>
+            <li><%= item.name %></li>
+            <li><%= item.review %></li>
+          </ul>
+          <% end %>
+         <% else %>
+      <% end %>
+    </div>
