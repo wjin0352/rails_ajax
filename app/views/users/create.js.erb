@@ -1,0 +1,2 @@
+$("div#list").prepend("<%= escape_javascript(render @user) %>");
+    $("ul#<%= dom_id(@user) %>").effect('highlight');

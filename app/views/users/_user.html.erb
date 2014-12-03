@@ -1,0 +1,6 @@
+
+<%= content_tag_for(:ul, user) do %>
+          <li><%= user.name %></li>
+          <li><%= user.review %></li>
+          <%= link_to 'DELETE', user, method: :delete, remote: true %>
+<% end %>

@@ -10,7 +10,8 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
     @user = User.new(params[:user].permit(:name, :review))
       if @user.save
         respond_to do |format|
-          format.html { render :json => User.all }
+          format.html { redirect_to new_user_path }
+          format.js
         end
       end
   end
@@ -20,6 +21,7 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
     respond_to do |format|
       format.html {redirect_to users_url, notice: 'User was successfully deleted.'}
       format.json {head :no_content}
+      format.js
     end
   end
 
